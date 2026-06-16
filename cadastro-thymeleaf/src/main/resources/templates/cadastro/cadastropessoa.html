@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>Insert title here</title>
+	<meta charset="utf-8">
+	<title>Cadastro de Pessoa</title>
+	<link rel="stylesheet" href="bulma/css/bulma.css">
 </head>
 <body>
-	<h1>Cadastro de Pessoa</h1>
-	<br/>
-	<form action="salvarpessoa" method="post">
+
+	<div class="card">
+  	<header class="card-header">
+    	<p class="card-header-title" style="margin-left:400px; font-size: 30px">Cadastro de Pessoa</p>
+  	</header>
+  	<div class="card-content">
+    <div class="content">
+      <form action="salvarpessoa" method="post">
 		<label>Nome:</label>
-		<input type="text" name="nome"/>
+		<input class="input is-link" type="text" name="nome"/>
 		<label>Sobrenome:</label>
-		<input type="text" name="sobrenome"/>
+		<input class="input is-link" type="text" name="sobrenome"/>
 		<label>Idade:</label>
-		<input type="number" name="sobrenome"/>
-		<input type="submit" value="Salvar"/>
+		<input class="input is-link" type="number" name="idade"/>
+		<div class="buttons">
+		<input class="button is-link" type="submit" value="Salvar"/>
+		</div>
 	</form>
-	<a href="/listapessoas">lista</a>
-	<table>
+    </div>
+  </div>
+</div>
+	
+	
+		<a class="button is-warning " href="/listapessoas">lista</a>
 		
-		<tr th:each = "pessoa: ${pessoas}">
-			<td th:text="${pessoa.id}"></td>
-			<td th:text="${pessoa.nome}"></td>
-			<td th:text="${pessoa.sobrenome}"></td>
-			<td th:text="${pessoa.idade}"></td>
-		</tr>
-	</table>
+	<div class="card">
+  <div class="card-content">
+    <div class="content">
+    	<div class="table-container">
+	  		<table class="table is-fullwidth is-striped is-hoverable">
+	  				<thead>
+	  					<tr>
+	  						<th>Id</th>
+	  						<th>Nome</th>
+	  						<th>sobrenome</th>
+	  						<th>Idade</th>
+	  					</tr>
+	  				</thead>
+	  				<tbody>
+	  					<tr th:each = "pessoa: ${pessoas}">
+							<td th:text="${pessoa.id}"></td>
+							<td th:text="${pessoa.nome}"></td>
+							<td th:text="${pessoa.sobrenome}"></td>
+							<td th:text="${pessoa.idade}"></td>
+						</tr>
+	  				</tbody>	  			
+			</table>
+		</div>
+     
+    </div>
+  </div>
+</div>
+	
+	  			
+    		
+  
 </body>
 </html>
